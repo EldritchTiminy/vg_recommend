@@ -50,6 +50,8 @@ video_games = [['Social Deduction', '2D', 'Among Us', 'Innersloth', 'Very Positi
                ['Horror', '3D', 'Dying Light', 'Techland', 'Overwhelmingly Positive'],
                ['Horror', '3D', 'Lethal Company', 'Zeekerss', 'Overwhelmingly Positive'],
                ['Simulation', '3D', 'PowerWash Simulator', 'Square Enix/FuturLab', 'Overwhelmingly Positive'],
-               ['Simulation', '3D', 'Microsoft Flight Simulator', 'Asobo Studio', 'Mostly Positive'],
-               
+               ['Simulation', '3D', 'Microsoft Flight Simulator', 'Asobo Studio', 'Mostly Positive']
 ]
+video_games.sort()
+types.sort()
+#print(types)
