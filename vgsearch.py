@@ -14,28 +14,41 @@ def ipl(slist, imp): #ipl ("input list") cuts down list elements to the same len
 def gsearch(sorted_list, left_pointer, right_pointer, target):
   # this condition indicates we've reached an empty "sub-list"
   if left_pointer >= right_pointer:
-    return "value not found"
+    return None
 	
   # We calculate the middle index from the pointers now
   mid_idx = (left_pointer + right_pointer) // 2
   mid_val = sorted_list[mid_idx]
-
+  
   if mid_val == target:
     return mid_idx
+    
   if mid_val > target:
     # we reduce the sub-list by passing in a new right_pointer
     return gsearch(sorted_list, left_pointer, mid_idx, target)
+    
   if mid_val < target:
     # we reduce the sub-list by passing in a new left_pointer
     return gsearch(sorted_list, mid_idx + 1, right_pointer, target)
 
-def vgs(imp):
-  slist = ipl(types, imp) #list of elements cut down to length of 'imp'
+def vgs(imp, sorted_list=types, found=[]):
+  slist = ipl(sorted_list, imp) #list of elements cut down to length of 'imp'
+  #print(slist)
+  found = found
+  results_list = []
   lpoint = 0
   rpoint = len(slist)-1
-  result = gsearch(slist, lpoint, rpoint, imp)
-  return result
+  result_idx = gsearch(slist, lpoint, rpoint, imp)
+  #result = slist[result_idx]
+  if result_idx == None:
+    return results_list
+  else:
+    result = slist.pop(result_idx)
+    slist.insert(result_idx, "0")
+    results = vgs(imp, slist, found)
+    return results + [types[result_idx]]
+  #return result_idx, result
   
 
 #ipl(types, "Acti") #ipl test
-#vgs("Com") #vgs test
+#vgs("Com", types) #vgs test
