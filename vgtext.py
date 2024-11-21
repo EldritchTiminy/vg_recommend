@@ -76,4 +76,18 @@ We didn't find anything...
 
 """
 
-prompts = [intro, list_prompt, search_res, confirm_prompt, error_code, no_res]
+vg_results = """
+=================================================================
+Here are the video games that we recommend under the {G} genre...
+
+"""
+
+
+video_game_result = """
+Video Game: {A}
+Developer:  {B}
+Reviews:    {C}
+
+"""#.format(A = result[2], B = result[3], C = result[4])
+
+prompts = [intro, list_prompt, search_res, confirm_prompt, error_code, no_res, vg_results, video_game_result]

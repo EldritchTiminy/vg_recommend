@@ -17,13 +17,13 @@
 # DONE - 4. Ask the user if that was what they were looking for.
 # DONE - 5. Move text prompts to seperate file for readability.
 # DONE - 6. Fix blank search "max recursion" error.
-# 7. Secondary search for search result category. Return all games withing category.
+# DONE - 7. Secondary search for search result category. Return all games withing category.
 # DONE - 8. Add 'quit' function.
 
 
 from vgdata import types, video_games
-from vgsearch import vgs, gsearch, ipl
-from vglist import ltm
+from vgsearch import vgs, gsearch, ipl, vgts
+from vglist import ltm, rtl
 from vgtext import prompts
 game_on = True
 
@@ -73,4 +73,8 @@ while game_on == True:
       continue
       
     else:
-      pass #put secondary search function here
+      #pass #put secondary search function here
+      result = vgts(input_2)
+      #print(result)
+      rtl(result, input_2)
+      input("Please press 'Enter' to continue...")

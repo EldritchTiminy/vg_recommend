@@ -2,7 +2,7 @@
 # Based on the recursive binary search model.
 # This script tests the search input for length, then searches the input list for entries that match the search input.
 
-from vgdata import types
+from vgdata import types, video_games
 
 def ipl(slist, imp): #ipl ("input list") cuts down list elements to the same length as input for easier searching.
   impl = len(imp)
@@ -11,7 +11,7 @@ def ipl(slist, imp): #ipl ("input list") cuts down list elements to the same len
   #print(nslist)
   return nslist
 
-def gsearch(sorted_list, left_pointer, right_pointer, target):
+def gsearch(sorted_list, left_pointer, right_pointer, target): #function for searching through a list for a target value
   # this condition indicates we've reached an empty "sub-list"
   if left_pointer >= right_pointer:
     return None
@@ -48,6 +48,15 @@ def vgs(imp, sorted_list=types, found=[]):
     results = vgs(imp, slist, found)
     return results + [types[result_idx]]
   #return result_idx, result
+
+def vgts(imp, sorted_list=video_games): #(vgts = video game title search)
+  #this function searches for individual titles of the searched genre
+  results = []
+  for game in sorted_list:
+    if game[0] == imp:
+      results += [game]
+  return results
+  
   
 
 #ipl(types, "Acti") #ipl test
