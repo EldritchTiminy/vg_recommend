@@ -2,6 +2,7 @@
 # These lists contain the data used in the recommendation software.
 
 #This is the list of genres of video games included.
+
 types = ["survival/crafting", "action", "simulation", "turn-based rpg", "open-world rpg", "metroidvania", "rogue-like", "first-person shooter", "third-person shooter", "comedy", "puzzle", "sandbox", "social deduction", "horror", "crpg"]
 
 #This is the list of all video games and related attributes.
