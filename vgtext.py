@@ -1,6 +1,5 @@
-#VG Prompts
-#This is a file that contains all of the text prompts.
-#Keeping the text prompts separate gives our code greater readability.
+# V.G. Text
+# This is a file that contains all of the text prompts, separated for code readability.
 
 intro = """
   
@@ -90,4 +89,5 @@ Reviews:    {C}
 
 """#.format(A = result[2], B = result[3], C = result[4])
 
+#Quick reference list for calling these threads.
 prompts = [intro, list_prompt, search_res, confirm_prompt, error_code, no_res, vg_results, video_game_result]

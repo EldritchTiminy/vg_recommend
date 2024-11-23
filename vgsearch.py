@@ -6,14 +6,11 @@ from vgdata import types, video_games
 
 def ipl(slist, imp): #ipl ("input list") cuts down list elements to the same length as input for easier searching.
   impl = len(imp)
-  #nslist = [element[:impl] for element in slist if len(element) > impl]
   nslist = [element[:impl] if len(element) > impl else element for element in slist]
-  #print(nslist)
   return nslist
 
 def gsearch(sorted_list, left_pointer, right_pointer, target): #function for searching through a list for a target value
-  # this condition indicates we've reached an empty "sub-list"
-  if left_pointer >= right_pointer:
+  if left_pointer >= right_pointer: # this condition indicates we've reached an empty "sub-list"
     return None
 	
   # We calculate the middle index from the pointers now
@@ -33,13 +30,11 @@ def gsearch(sorted_list, left_pointer, right_pointer, target): #function for sea
 
 def vgs(imp, sorted_list=types, found=[]):
   slist = ipl(sorted_list, imp) #list of elements cut down to length of 'imp'
-  #print(slist)
   found = found
   results_list = []
   lpoint = 0
   rpoint = len(slist)-1
   result_idx = gsearch(slist, lpoint, rpoint, imp)
-  #result = slist[result_idx]
   if result_idx == None:
     return results_list
   else:
@@ -47,7 +42,6 @@ def vgs(imp, sorted_list=types, found=[]):
     slist.insert(result_idx, "0")
     results = vgs(imp, slist, found)
     return results + [types[result_idx]]
-  #return result_idx, result
 
 def vgts(imp, sorted_list=video_games): #(vgts = video game title search)
   #this function searches for individual titles of the searched genre
@@ -56,8 +50,3 @@ def vgts(imp, sorted_list=video_games): #(vgts = video game title search)
     if game[0] == imp:
       results += [game]
   return results
-  
-  
-
-#ipl(types, "Acti") #ipl test
-#vgs("Com", types) #vgs test
